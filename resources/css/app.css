@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-cyber-bg text-cyber-text;
+    }
+
+    ::selection {
+        @apply bg-cyber-primary/30 text-cyber-text;
+    }
+
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-cyber-bg;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-cyber-border rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-cyber-primary/50;
+    }
+}
+
+@layer components {
+    .cyber-card {
+        @apply bg-cyber-card border border-cyber-border rounded-lg;
+    }
+
+    .cyber-input {
+        @apply bg-cyber-bg border border-cyber-border rounded-md text-cyber-text placeholder-cyber-muted
+               focus:border-cyber-primary focus:ring-1 focus:ring-cyber-primary focus:outline-none;
+    }
+
+    .cyber-btn {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium
+               bg-cyber-primary text-cyber-bg hover:bg-cyber-hover transition-colors duration-200;
+    }
+
+    .cyber-btn-outline {
+        @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium
+               border border-cyber-border text-cyber-text hover:border-cyber-primary hover:text-cyber-primary
+               transition-colors duration-200;
+    }
+
+    .cyber-tag {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-mono
+               bg-cyber-primary/10 text-cyber-primary border border-cyber-primary/20
+               hover:bg-cyber-primary/20 transition-colors;
+    }
+
+    .prose-cyber {
+        @apply prose prose-invert max-w-none
+               prose-headings:text-cyber-text prose-headings:font-semibold
+               prose-p:text-cyber-muted prose-a:text-cyber-primary prose-a:no-underline hover:prose-a:text-cyber-hover
+               prose-strong:text-cyber-text prose-code:text-cyber-primary prose-code:bg-cyber-card prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+               prose-pre:bg-cyber-card prose-pre:border prose-pre:border-cyber-border
+               prose-blockquote:border-cyber-primary prose-blockquote:text-cyber-muted
+               prose-li:text-cyber-muted prose-th:text-cyber-text prose-td:text-cyber-muted;
+    }
+}
