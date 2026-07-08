@@ -33,7 +33,7 @@ function isActive(routeName) {
         ]"
     >
         <!-- Logo -->
-        <div class="flex items-center justify-between p-6 border-b border-cyber-border">
+        <div class="flex items-center justify-between border-b border-cyber-border" style="padding: 0.7rem;">
             <Link :href="route('home')" class="flex items-center gap-3 group" @click="store.closeSidebar()">
                 <div class="flex items-center justify-center w-10 h-10 rounded-lg bg-cyber-primary/10 border border-cyber-primary/30 group-hover:border-cyber-primary transition-colors overflow-hidden">
                     <img src="/img/icone.png" :alt="page.props.blog?.name" class="w-7 h-7 object-contain" />

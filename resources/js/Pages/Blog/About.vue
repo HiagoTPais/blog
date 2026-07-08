@@ -35,7 +35,7 @@ defineProps({
                     {{ profile.bio }}
                 </p>
 
-                <div class="flex items-center justify-center gap-4 mt-6">
+                <div class="flex flex-wrap items-center justify-center gap-4 mt-6">
                     <a :href="profile.github" target="_blank" rel="noopener" class="cyber-btn-outline">
                         <Github class="w-4 h-4" /> GitHub
                     </a>
@@ -45,6 +45,14 @@ defineProps({
                     <a :href="`mailto:${profile.email}`" class="cyber-btn-outline">
                         <Mail class="w-4 h-4" /> Email
                     </a>
+                    <a
+                        v-if="profile.resume_url"
+                        :href="profile.resume_url"
+                        download="Hiago-Pais-CV.pdf"
+                        class="cyber-btn-outline"
+                    >
+                        <Download class="w-4 h-4" /> Baixar CV
+                    </a>
                 </div>
             </div>
 
@@ -53,7 +61,7 @@ defineProps({
                 <h2 class="font-mono text-lg text-cyber-primary mb-4">
                     <span class="text-cyber-muted">//</span> about.summary
                 </h2>
-                <p class="text-cyber-muted leading-relaxed">{{ profile.summary }}</p>
+                <p class="text-cyber-muted leading-relaxed whitespace-pre-line">{{ profile.summary }}</p>
             </div>
 
             <!-- Experience -->
@@ -68,9 +76,19 @@ defineProps({
                         class="relative pl-6 border-l-2 border-cyber-primary/30"
                     >
                         <div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-cyber-primary" />
-                        <h3 class="font-semibold text-cyber-text">{{ exp.role }}</h3>
-                        <p class="text-sm text-cyber-primary font-mono">{{ exp.company }} · {{ exp.period }}</p>
+                        <h3 class="font-semibold text-cyber-text">{{ exp.company }}</h3>
+                        <p class="text-sm text-cyber-primary font-mono">{{ exp.role }} · {{ exp.period }}</p>
                         <p class="mt-2 text-sm text-cyber-muted">{{ exp.description }}</p>
+                        <ul v-if="exp.highlights?.length" class="mt-2 space-y-1">
+                            <li
+                                v-for="(item, itemIndex) in exp.highlights"
+                                :key="itemIndex"
+                                class="text-sm text-cyber-muted flex gap-2"
+                            >
+                                <span class="text-cyber-primary shrink-0">•</span>
+                                <span>{{ item }}</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -94,40 +112,6 @@ defineProps({
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Projects -->
-            <div class="cyber-card p-6">
-                <h2 class="font-mono text-lg text-cyber-primary mb-4">
-                    <span class="text-cyber-muted">//</span> projects/
-                </h2>
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    <div
-                        v-for="project in profile.projects"
-                        :key="project.name"
-                        class="p-4 rounded-lg border border-cyber-border hover:border-cyber-primary/40 transition-colors"
-                    >
-                        <h3 class="font-semibold text-cyber-text">{{ project.name }}</h3>
-                        <p class="mt-2 text-sm text-cyber-muted">{{ project.description }}</p>
-                        <a
-                            v-if="project.url"
-                            :href="project.url"
-                            target="_blank"
-                            rel="noopener"
-                            class="inline-flex items-center gap-1 mt-3 text-sm text-cyber-primary hover:text-cyber-hover font-mono"
-                        >
-                            <ExternalLink class="w-3.5 h-3.5" /> visit
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Goal -->
-            <div class="cyber-card p-6">
-                <h2 class="font-mono text-lg text-cyber-primary mb-4">
-                    <span class="text-cyber-muted">//</span> career.goal
-                </h2>
-                <p class="text-cyber-muted leading-relaxed">{{ profile.goal }}</p>
             </div>
         </div>
     </BlogLayout>

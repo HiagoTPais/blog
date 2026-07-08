@@ -21,20 +21,75 @@ class AboutController extends Controller
                 'github' => config('blog.github'),
                 'linkedin' => config('blog.linkedin'),
                 'avatar' => asset('img/photo.jpeg'),
+                'resume_url' => asset('pdf/resume.pdf'),
                 'bio' => 'Sou desenvolvedor Full Stack com foco em aplicações web seguras, escaláveis e de alta performance. Especializo-me em projetar, desenvolver e implementar sistemas web e de gestão empresarial, com forte base técnica e mentalidade analítica.',
-                'summary' => 'Minha expertise inclui construção e manutenção de aplicações com PHP, Laravel, MySQL e PostgreSQL, seguindo arquitetura MVC. Trabalho com Vue.js, React, Docker e integrações com plataformas como Salesforce. Tenho interesse especial em cybersegurança, hacking ético, pentest e DevSecOps.',
+                'summary' => implode("\n\n", [
+                    'Desenvolvedor Full Stack com sólida experiência no desenvolvimento de aplicações web escaláveis e de alta performance, utilizando Laravel e Node.js no backend, além de Vue.js e React.js no frontend. Atua na criação de sistemas de gestão empresarial, APIs RESTful, microsserviços e integrações entre plataformas, com forte domínio em modelagem e otimização de bancos de dados MySQL, PostgreSQL e MongoDB.',
+                    'Possui experiência em deploy, monitoramento e manutenção de aplicações em ambientes Linux, utilizando Docker para containerização e automação de processos com ferramentas como n8n, Node.js e scripts em Python, permitindo integração entre sistemas, criação de fluxos automatizados e otimização de tarefas operacionais.',
+                    'Também possui experiência na integração de soluções de Inteligência Artificial em aplicações web, conectando APIs de IA para automação de tarefas, análise de dados, geração de conteúdo e desenvolvimento de assistentes inteligentes integrados a sistemas corporativos.',
+                    'Profissional proativo, com foco na resolução de problemas complexos e na melhoria contínua de processos através de soluções tecnológicas eficientes, priorizando código limpo, escalabilidade, segurança e performance.',
+                ]),
                 'experience' => [
                     [
-                        'role' => 'Full Stack Developer',
-                        'company' => 'Freelancer / Projetos Próprios',
-                        'period' => '2020 — Presente',
-                        'description' => 'Desenvolvimento de sistemas web completos com Laravel, Vue.js e Docker. Integrações de API, otimização de performance e implementação de boas práticas de segurança.',
+                        'role' => 'Programador',
+                        'company' => 'Growe',
+                        'period' => '02/2025 — 03/2026',
+                        'description' => 'Desenvolvimento e manutenção de aplicações web com PHP, WordPress e MySQL.',
+                        'highlights' => [
+                            'Desenvolvimento de sistema tipo SaaS com Laravel, Inertia.js e interface SPA com React.js e TypeScript.',
+                            'Desenvolvimento de landing pages e layouts para sites de eventos.',
+                            'Implementação de automações de processos com n8n, integrando APIs e gestão de leads.',
+                        ],
                     ],
                     [
-                        'role' => 'System Developer',
+                        'role' => 'Programador',
                         'company' => 'SmartBit',
-                        'period' => '2019 — 2023',
-                        'description' => 'Desenvolvimento de sistemas comerciais, integrações SaaS e manutenção de aplicações Laravel/Vue.js em produção.',
+                        'period' => '09/2024 — 01/2025',
+                        'description' => 'Desenvolvimento de sistema tipo SaaS com Laravel, Inertia.js e interface SPA com Vue.js e TypeScript.',
+                        'highlights' => [
+                            'Desenvolvimento de testes unitários com PHPUnit.',
+                        ],
+                    ],
+                    [
+                        'role' => 'Programador',
+                        'company' => 'NDB Software',
+                        'period' => '02/2024 — 07/2024',
+                        'description' => 'Desenvolvimento e manutenção de aplicações tipo SaaS em PHP, Laravel, Node.js e TypeScript.',
+                        'highlights' => [
+                            'Desenvolvimento de API RESTful com PHP, Laravel, Node.js e TypeScript.',
+                            'Implementação de bancos PostgreSQL, MySQL e MongoDB.',
+                            'Desenvolvimento de interface responsiva e landing page com ReactJS e Bootstrap.',
+                            'Implementação de ambiente de desenvolvimento e produção com Docker.',
+                        ],
+                    ],
+                    [
+                        'role' => 'Programador',
+                        'company' => 'PaiBahia',
+                        'period' => '04/2023 — 08/2024',
+                        'description' => 'Desenvolvimento de APIs e sistemas para administração comercial com PHP, Laravel e interface gráfica tipo SPA com Vue.js.',
+                        'highlights' => [
+                            'Desenvolvimento de aplicação com React Native.',
+                        ],
+                    ],
+                    [
+                        'role' => 'Programador',
+                        'company' => 'CEA Arte Eletrônicas',
+                        'period' => '07/2021 — 03/2023',
+                        'description' => 'Desenvolvimento e manutenção de aplicações web com PHP, Laravel, MySQL, Node.js e TypeScript.',
+                        'highlights' => [
+                            'Construção de APIs REST e integração com Salesforce e Followize.',
+                            'Desenvolvimento de sistemas de gestão comercial e layouts para sites de eventos.',
+                            'Uso de Docker para facilitar o deploy e a escalabilidade das aplicações.',
+                        ],
+                    ],
+                    [
+                        'role' => 'Programador',
+                        'company' => 'MicksTelecom',
+                        'period' => '06/2019 — 05/2021',
+                        'description' => 'Desenvolvimento de aplicações web com PHP, MySQL e Laravel, baseados na estrutura MVC.',
+                        'highlights' => [
+                            'Criação de dashboards utilizando PostgreSQL, MySQL e Grafana.',
+                        ],
                     ],
                 ],
                 'technologies' => [
@@ -44,11 +99,6 @@ class AboutController extends Controller
                     'Security' => ['Pentest', 'OWASP', 'Red Team', 'Blue Team', 'DevSecOps'],
                 ],
                 'projects' => [
-                    [
-                        'name' => 'PaiBahia',
-                        'description' => 'Sistema de gestão funerária para atendimento ao cliente e gestão financeira.',
-                        'url' => 'http://paibahia.com.br',
-                    ],
                     [
                         'name' => 'Siena Church',
                         'description' => 'Sistema de galeria de imagens organizada e navegável a partir de repositório.',
