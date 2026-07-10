@@ -26,10 +26,6 @@ Aplicação web com área pública para leitura de artigos e painel administrati
 composer setup
 ```
 
-Esse comando instala as dependências, cria o `.env`, gera a chave da aplicação, executa as migrations e compila os assets.
-
-Para popular o banco com dados de exemplo:
-
 ```bash
 php artisan db:seed
 ```
