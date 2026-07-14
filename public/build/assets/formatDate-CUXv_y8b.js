@@ -1,1 +1,0 @@
-function e(e){return e?new Date(e).toLocaleDateString(`pt-BR`,{day:`2-digit`,month:`short`,year:`numeric`}):``}export{e as t};
